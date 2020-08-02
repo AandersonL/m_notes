@@ -98,11 +98,12 @@ require 'ffi'
 
 module SyscallRunner
   extend FFI::Library
-  ffi_lib FFI::Library::LIBC
-  attach_function :syscall, [:int, :int], :int
+        ffi_lib FFI::Library::LIBC
+        attach_function :syscall, [:int, :string], :int
 end
 
-SyscallRunner.syscall 60, 1
+SyscallRunner.syscall 210, "Something nice here"
+
 ```
 
 You can track the logs from ***dmesg*** output
